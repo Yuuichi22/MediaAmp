@@ -2,35 +2,34 @@ import { createSlice } from "@reduxjs/toolkit";
 import { persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 
-const initialState = [
-  {
-    id: -1,
-    name: "default name",
-    description: "",
-    tags: [],
-    genres: [],
-  },
-];
+const initialState = {
+  list: [], // ✅ Store library data inside "list" property
+};
 
 const persistConfig = {
   key: "library",
   storage,
+  whitelist: ["list"], // ✅ Persist only the "list" property
 };
 
 const librarySlice = createSlice({
   name: "library",
   initialState,
   reducers: {
-    setLibrary: (state, action) => action.payload,
+    setLibrary: (state, action) => {
+      state.list = action.payload; // ✅ Update "list" with new data
+    },
 
-    resetLibrary: () => [],
+    resetLibrary: (state) => {
+      state.list = []; // ✅ Reset "list" to an empty array
+    },
 
     addToLibrary: (state, action) => {
-      state.push(action.payload);
+      state.list.push(action.payload); // ✅ Add new game to "list"
     },
 
     removeFromLibrary: (state, action) => {
-      return state.filter((game) => game.id !== action.payload.id);
+      state.list = state.list.filter((game) => game.id !== action.payload.id); // ✅ Remove game by ID
     },
   },
 });

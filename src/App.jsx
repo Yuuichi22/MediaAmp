@@ -6,6 +6,8 @@ import BaseLayout from './layout/BaseLayout'
 import Header from './components/Header'
 import GameDetailsPage from './pages/GameDetailsPage'
 import {BrowserRouter,Routes,Route} from 'react-router-dom'
+import Main from './pages/Main'
+import Library from './pages/Library'
 function App() {
   useEffect(() => {
   //  searchGame("Grand")
@@ -16,6 +18,8 @@ function App() {
     <Header/>
     <Routes>
       <Route path='/games/:id' element = {<GameDetailsPage/>}/>
+      <Route path='/' element = {<BaseLayout/>}/>
+      <Route path='/library' element = {<Library/>}/>
     </Routes>
     </BrowserRouter>
     </>

@@ -1,19 +1,32 @@
 import { useState, useEffect } from "react";
 import { searchGame } from "../service/gamesService";
 import { Search,Library,X } from "lucide-react";
+import { useDispatch, useSelector } from "react-redux";
+import { toggleSearch } from "../app/features/Search/searchSlice";
 
 const Header = () => {
-  const [isSearching, setIsSearching] = useState(false);
- 
+  const dispatch = useDispatch()
+  const isSearching = useSelector(state => state.search.isSearching)
+  useEffect(() => {
+     /*used deepseek here for top the body scroll behavior  */
+    if (isSearching) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
+    
+    return () => {
+      document.body.style.overflow = 'auto';
+    };
+  }, [isSearching]);
 
-  // Inline styles for animation
 
 
   return (
     <div className="d-flex justify-content-around p-4 align-items-center position-fixed w-100">
       <div className="fw-bolder fs-5">RAWG</div>
       <div>
-        <button className="border-0 bg-transparent" onClick={() => setIsSearching(!isSearching)}>
+        <button className="border-0 bg-transparent" onClick={() => dispatch(toggleSearch())}>
         {  !isSearching ? <Search /> :  <X />}
         </button>
       </div>
@@ -31,19 +44,19 @@ export default Header;
 
 const SearchComponent = ({isSearching}) => {
   const searchBoxStyles = {
-    position: "absolute",
+    position: "fixed",
     top: "80px",
     left: "50%",
     borderRadius : "12px",
     backgroundColor : "aliceblue",
     transform: "translateX(-50%)",
-    width: "90%", // Bootstrap secondary color
+    width: "90%", 
     padding: "10px",
     boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)",
     transition: "opacity 0.3s ease-in-out",
     opacity: isSearching ? 1 : 0,
     pointerEvents: isSearching ? "auto" : "none",
-  
+    overflow : "auto"
   };
   const [query, setQuery] = useState("");
   const [loading, setLoading] = useState(false);
@@ -61,7 +74,7 @@ const SearchComponent = ({isSearching}) => {
     return () => clearTimeout(delayDebounceFn);
   }, [query]);
   return (
- <div style={searchBoxStyles}>
+ <div style={searchBoxStyles} >
  <input
    type="text"
    value={query}
@@ -74,7 +87,11 @@ const SearchComponent = ({isSearching}) => {
  {loading && <div className="text-center">Loading...</div>}
 
  {/* Search Results */}
- <div>
+ <div  style={{ 
+        overflowY: "auto",
+        maxHeight: "70vh", 
+        paddingRight: "8px"
+      }}>
    {searchResults.length > 0 ? (
      searchResults.map((game, index) => (
        <div key={index} className="d-flex align-items-center justify-content-between border-bottom p-2">
