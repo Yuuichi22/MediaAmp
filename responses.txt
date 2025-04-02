@@ -1,0 +1,83 @@
+/games/{id}
+{
+  "game_id": "integer",
+  "slug": "string",
+  "name": "string",
+  "original_name": "string",
+  "description": "string",
+  "release_date": "string (ISO 8601)",
+  "developer": ["string"],
+  "publisher": ["string"],
+  "platforms": [
+    {
+      "platform_id": "integer",
+      "name": "string",
+      "slug": "string",
+      "release_date": "string (ISO 8601)",
+      "requirements": {
+        "minimum": "string (optional)",
+        "recommended": "string (optional)"
+      }
+    }
+  ],
+  "genres": ["string"],
+  "tags": ["string"],
+  "rating": {
+    "average": "float",
+    "top": "integer",
+    "breakdown": [
+      {
+        "id": "integer",
+        "title": "string",
+        "count": "integer",
+        "percent": "float"
+      }
+    ]
+  },
+  "achievements": {
+    "total": "integer",
+    "unlocked": "integer"
+  },
+  "playtime_hours": "integer",
+  "added_by_users": {
+    "total": "integer",
+    "statuses": {
+      "owned": "integer",
+      "beaten": "integer",
+      "dropped": "integer",
+      "yet_to_play": "integer"
+    }
+  },
+  "store_links": [
+    {
+      "store_id": "integer",
+      "name": "string",
+      "slug": "string",
+      "url": "string"
+    }
+  ],
+  "images": {
+    "background": "string (URL)",
+    "additional": ["string (URL)"]
+  },
+  "videos_count": "integer",
+  "screenshots_count": "integer",
+  "community": {
+    "reddit": {
+      "url": "string (optional)",
+      "name": "string (optional)",
+      "count": "integer"
+    },
+    "twitch_count": "integer",
+    "youtube_count": "integer"
+  },
+  "esrb_rating": "string",
+  "multiplayer": {
+    "local": "boolean",
+    "online": "boolean",
+    "co-op": "boolean",
+    "split_screen": "boolean"
+  }
+}
+
+
