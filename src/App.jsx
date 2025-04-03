@@ -6,6 +6,7 @@ import BaseLayout from './layout/BaseLayout'
 import Header from './components/Header'
 import GameDetailsPage from './pages/GameDetailsPage'
 import {BrowserRouter,Routes,Route} from 'react-router-dom'
+import ProtectedRoute from './components/ProtectedRoute'
 import Main from './pages/Main'
 import Library from './pages/Library'
 function App() {
@@ -18,8 +19,12 @@ function App() {
     <Header/>
     <Routes>
       <Route path='/games/:id' element = {<GameDetailsPage/>}/>
-      <Route path='/' element = {<BaseLayout/>}/>
-      <Route path='/library' element = {<Library/>}/>
+      <Route path='/:page' element = {<BaseLayout/>}/>
+      <Route protected path='/library' element = {
+          <ProtectedRoute>
+            <Library/>
+          </ProtectedRoute>
+        }/>
     </Routes>
     </BrowserRouter>
     </>

@@ -21,8 +21,8 @@ export const getGameInfo = async (id) => {
     }
     return null;
 }
-export const getListOfGames = async (dispatch, genres = [], tags = []) => {
-    const params = new URLSearchParams({ key: API_KEY });
+export const getListOfGames = async (dispatch, genres, tags,page,orderBy) => {
+    const params = new URLSearchParams({ key: API_KEY,page : page});
     
     // Add genres if they exist
     if (genres.length > 0) {
@@ -33,7 +33,8 @@ export const getListOfGames = async (dispatch, genres = [], tags = []) => {
     if (tags.length > 0) {
       params.append('tags', tags.join(','));
     }
-  
+    console.log("orderby",orderBy)
+    if(orderBy) params.append('ordering',orderBy)
     try {
       dispatch(fetchGames()); // Dispatch loading state
       console.log(BASE_URL+'/games?'+params.toString());

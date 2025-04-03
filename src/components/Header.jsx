@@ -2,9 +2,11 @@ import { useState, useEffect } from "react";
 import { searchGame } from "../service/gamesService";
 import { Search,Library,X } from "lucide-react";
 import { useDispatch, useSelector } from "react-redux";
-import { toggleSearch } from "../app/features/Search/searchSlice";
-
+import { closeSearch, toggleSearch } from "../app/features/Search/searchSlice";
+import { useNavigate } from "react-router-dom";
+import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/clerk-react";
 const Header = () => {
+  const navigate = useNavigate()
   const dispatch = useDispatch()
   const isSearching = useSelector(state => state.search.isSearching)
   useEffect(() => {
@@ -24,15 +26,23 @@ const Header = () => {
 
   return (
     <div className="d-flex justify-content-around p-4 align-items-center position-fixed w-100">
-      <div className="fw-bolder fs-5">RAWG</div>
+      <div className="fw-bolder fs-5" onClick={() => navigate('/')}>RAWG</div>
+     
+      <SignedOut>
+        <SignInButton />
+      </SignedOut>
+      <SignedIn>
       <div>
         <button className="border-0 bg-transparent" onClick={() => dispatch(toggleSearch())}>
         {  !isSearching ? <Search /> :  <X />}
         </button>
       </div>
-      <div className="d-flex align-items-center gap-1">
+      <div className="d-flex align-items-center gap-1" onClick={() => navigate('/library')}>
         <Library />
       <span>Library</span></div>
+      <UserButton></UserButton>
+      </SignedIn>
+     
       <SearchComponent isSearching = {isSearching}/>
      
     </div>
@@ -43,6 +53,8 @@ export default Header;
 
 
 const SearchComponent = ({isSearching}) => {
+  const navigate = useNavigate()
+  const dispatch = useDispatch()
   const searchBoxStyles = {
     position: "fixed",
     top: "80px",
@@ -94,7 +106,9 @@ const SearchComponent = ({isSearching}) => {
       }}>
    {searchResults.length > 0 ? (
      searchResults.map((game, index) => (
-       <div key={index} className="d-flex align-items-center justify-content-between border-bottom p-2">
+       <div key={index} className="d-flex align-items-center justify-content-between border-bottom p-2" onClick={() => {
+        dispatch(closeSearch())
+        navigate(`/games/${game.id}`)}}>
          <div>{game.name}</div>
        </div>
      ))

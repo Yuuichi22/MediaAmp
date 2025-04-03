@@ -1,0 +1,25 @@
+@media (min-width: 768px) {  /* md breakpoint */
+    .position-md-fixed {
+      position: fixed;
+    }
+  }
+  
+.hover-selected:hover{
+    z-index: 1000;
+    box-shadow: 0 0 4px 0px black;
+
+}
+
+
+.rotating {
+  animation: rotate 2s linear infinite;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

@@ -1,11 +1,14 @@
-import { useEffect, useState } from "react";
+import { use, useEffect, useState } from "react";
 import { getListOfGames } from "../service/gamesService";
 import { useDispatch } from "react-redux";
+import { useParams } from "react-router-dom";
 
 const Menu = () => {
+    const {page} = useParams()
     const dispatch = useDispatch()
   const [selectedTags, setSelectedTags] = useState([]);
   const [selectedGenres,setSelectedGenres] = useState([])
+  const [orderBy,setOrderBy] = useState("")
   const [tags, setTags] = useState([
     { name: "SinglePlayer", isSelected: false },
     { name: "Multiplayer", isSelected: false },
@@ -73,8 +76,8 @@ const Menu = () => {
     });
   };
   useEffect(() => {
-        getListOfGames(dispatch,selectedGenres,selectedTags)
-  },[selectedGenres,selectedTags])
+        getListOfGames(dispatch,selectedGenres,selectedTags,page,orderBy)
+  },[selectedGenres,selectedTags,page,orderBy])
 
   return (
     <div
@@ -86,9 +89,10 @@ const Menu = () => {
       </div>
       <div className="input-group gap-2">
         <span>Order By</span>
-        <select className="rounded">
-          <option>Release Date</option>
-          <option>Popularity</option>
+        <select value ={orderBy} onChange={(e) => setOrderBy(e.target.value)} className="rounded">
+        <option value="">Choose...</option>
+          <option value="released">Release Date</option>
+          <option value = "rating">Popularity</option>
         </select>
       </div>
       <div>
@@ -120,6 +124,7 @@ const Menu = () => {
           ))}
         </div>
       </div>
+  
     </div>
   );
 };
