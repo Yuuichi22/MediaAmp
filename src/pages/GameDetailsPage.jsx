@@ -41,8 +41,8 @@ const GameDetailsPage = () => {
 
   if (error) return <div style= {{paddingTop : "80px"}} className="text-center text-danger">{error}</div>;
   if (!gameInfo) return  <div style= {{paddingTop : "80px"}}>
-  <div style={{width:"max-content",margin:"auto"}}>
-  <LoaderCircle className="rotating " style={{overflow : "hidden"}}/>
+  <div style={{width:"max-content",margin:"auto"}} className ="overflow-hidden">
+  <LoaderCircle className="rotating overflow-hidden" />
   </div>
 </div>
 

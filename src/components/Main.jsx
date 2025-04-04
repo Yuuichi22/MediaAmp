@@ -41,7 +41,7 @@ const Main = () => {
   return isLoading ? (
     
     <div>
-      <div style={{width:"max-content",margin:"auto"}}>
+      <div style={{width:"max-content",margin:"auto"}} className="overflow-hidden">
       <LoaderCircle className="rotating " style={{overflow : "hidden"}}/>
       </div>
   </div>
