@@ -42,7 +42,7 @@ const GameDetailsPage = () => {
   if (error) return <div style= {{paddingTop : "80px"}} className="text-center text-danger">{error}</div>;
   if (!gameInfo) return  <div style= {{paddingTop : "80px"}}>
   <div style={{width:"max-content",margin:"auto"}}>
-  <LoaderCircle className="rotating " />
+  <LoaderCircle className="rotating " style={{overflow : "hidden"}}/>
   </div>
 </div>
 
@@ -55,7 +55,7 @@ const GameDetailsPage = () => {
       }}
     >
       <Container>
-        <Row className="align-items-center p-5">
+        <Row className="align-items-center p-md-5">
           {/* Game Details */}
           <Col md={6} className="m-2">
             <h1 className="text-wrap" style={{ width: "400px" }}>

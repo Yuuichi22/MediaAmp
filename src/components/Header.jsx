@@ -15,18 +15,18 @@ const Header = () => {
     if (isSearching) {
       document.body.style.overflow = 'hidden';
     } else {
-      document.body.style.overflow = 'auto';
+      document.body.style.overflowY = 'auto';
     }
     
     return () => {
-      document.body.style.overflow = 'auto';
+      document.body.style.overflowY = 'auto';
     };
   }, [isSearching]);
 
 
 
   return (
-    <div className="d-flex justify-content-around p-4 align-items-center position-fixed w-100">
+    <div className="d-flex justify-content-around px-md-4 py-4 align-items-center position-fixed w-100 oveflow-x-hidden">
       <div className="fw-bolder fs-5" onClick={() => navigate('/')}>RAWG</div>
      
       <SignedOut>
@@ -40,7 +40,7 @@ const Header = () => {
         {  !isSearching ? <Search /> :  <X />}
         </button>
       </div>
-      <div className="d-flex align-items-center gap-1" onClick={() => navigate('/library')}>
+      <div className="d-flex align-items-center gap-md-1" onClick={() => navigate('/library')}>
         <Library />
       <span>Library</span></div>
       <UserButton></UserButton>

@@ -42,7 +42,7 @@ const Main = () => {
     
     <div>
       <div style={{width:"max-content",margin:"auto"}}>
-      <LoaderCircle className="rotating " />
+      <LoaderCircle className="rotating " style={{overflow : "hidden"}}/>
       </div>
   </div>
   

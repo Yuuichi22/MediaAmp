@@ -1,3 +1,7 @@
+*{
+  overflow-x: hidden
+}
+
 @media (min-width: 768px) {  /* md breakpoint */
     .position-md-fixed {
       position: fixed;
@@ -22,4 +26,7 @@
   to {
     transform: rotate(360deg);
   }
+}
+h2,h1,h3,h4,h5,h6{
+  overflow: hidden;
 }

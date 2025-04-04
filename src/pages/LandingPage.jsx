@@ -8,7 +8,7 @@ const LandingPage = () => {
     <div style={{ margin: 0 ,paddingTop : "80px"}}>
       {/* Fullscreen Hero Section */}
       <section
-        className="d-flex align-items-center justify-content-center text-white my-5"
+        className="d-flex align-items-center justify-content-center text-white my-5 p-2"
       
       >
         <div
