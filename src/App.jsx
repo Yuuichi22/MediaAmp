@@ -9,6 +9,7 @@ import {BrowserRouter,Routes,Route} from 'react-router-dom'
 import ProtectedRoute from './components/ProtectedRoute'
 import Main from './pages/Main'
 import Library from './pages/Library'
+import LandingPage from './pages/LandingPage'
 function App() {
   useEffect(() => {
   //  searchGame("Grand")
@@ -19,6 +20,7 @@ function App() {
     <Header/>
     <Routes>
       <Route path='/games/:id' element = {<GameDetailsPage/>}/>
+      <Route path='/' element = {<LandingPage/>}/>
       <Route path='/:page' element = {<BaseLayout/>}/>
       <Route protected path='/library' element = {
           <ProtectedRoute>

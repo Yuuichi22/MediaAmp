@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { closeSearch, toggleSearch } from "../app/features/Search/searchSlice";
 import { useNavigate } from "react-router-dom";
 import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/clerk-react";
+import { Button } from "react-bootstrap";
 const Header = () => {
   const navigate = useNavigate()
   const dispatch = useDispatch()
@@ -29,7 +30,9 @@ const Header = () => {
       <div className="fw-bolder fs-5" onClick={() => navigate('/')}>RAWG</div>
      
       <SignedOut>
-        <SignInButton />
+        <SignInButton>
+          <Button variant="dark" className="rounded-pill">Sign in</Button>
+        </SignInButton>
       </SignedOut>
       <SignedIn>
       <div>

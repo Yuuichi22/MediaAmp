@@ -34,7 +34,7 @@ export const getListOfGames = async (dispatch, genres, tags,page,orderBy) => {
       params.append('tags', tags.join(','));
     }
     console.log("orderby",orderBy)
-    if(orderBy) params.append('ordering',orderBy)
+    if(orderBy) params.append('ordering',`-${orderBy}`)
     try {
       dispatch(fetchGames()); // Dispatch loading state
       console.log(BASE_URL+'/games?'+params.toString());
