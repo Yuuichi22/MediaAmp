@@ -1,4 +1,4 @@
-import { fetchGames, setErrors, setGames } from "../app/features/Game/gameSlice";
+import { fetchGames, setErrors, setGames } from "../app/features/game/gameSlice";
 
 const BASE_URL = import.meta.env.VITE_RAWG_BASE_URI
 const API_KEY = import.meta.env.VITE_RAWG_API_KEY
