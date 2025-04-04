@@ -4,7 +4,7 @@ import { getGameInfo } from "../service/gamesService";
 import { Row, Col, Container, Button } from "react-bootstrap";
 import { formatDateToWords } from "../utils/utility";
 import { useDispatch, useSelector } from "react-redux";
-import { addToLibrary } from "../app/features/Library/librarySlice";
+import { addToLibrary } from "../app/features/library/librarySlice";
 import { LoaderCircle } from "lucide-react"
 
 const GameDetailsPage = () => {

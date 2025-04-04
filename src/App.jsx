@@ -7,7 +7,6 @@ import Header from './components/Header'
 import GameDetailsPage from './pages/GameDetailsPage'
 import {BrowserRouter,Routes,Route} from 'react-router-dom'
 import ProtectedRoute from './components/ProtectedRoute'
-import Main from './pages/Main'
 import Library from './pages/Library'
 import LandingPage from './pages/LandingPage'
 function App() {

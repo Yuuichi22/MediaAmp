@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { searchGame } from "../service/gamesService";
 import { Search,Library,X } from "lucide-react";
 import { useDispatch, useSelector } from "react-redux";
-import { closeSearch, toggleSearch } from "../app/features/Search/searchSlice";
+import { closeSearch, toggleSearch } from "../app/features/search/searchSlice";
 import { useNavigate } from "react-router-dom";
 import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/clerk-react";
 import { Button } from "react-bootstrap";

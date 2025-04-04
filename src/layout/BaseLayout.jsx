@@ -1,6 +1,6 @@
 import Header from "../components/Header";
 import Menu from "../components/Menu";
-import Main from "../pages/Main";
+import Main from "../components/Main";
 import { Container, Row, Col } from "react-bootstrap";
 import { useSelector } from "react-redux";
 
