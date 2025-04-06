@@ -36,7 +36,7 @@ const LandingPage = () => {
           <h2 className="fw-semibold">Why RAWG?</h2>
           <p className="text-muted mt-3 mx-auto" style={{ maxWidth: "600px" }}>
             Discover, save, and explore the most loved games from every genre.
-            Whether you’re a hardcore gamer or just getting started — GameHub is built for you.
+            Whether you’re a hardcore gamer or just getting started — RAWG is built for you.
           </p>
         </Container>
       </section>
@@ -44,9 +44,9 @@ const LandingPage = () => {
       {/* Footer */}
       <footer className="bg-dark text-white py-4">
         <Container className="text-center">
-          <p className="mb-1">© {new Date().getFullYear()} GameHub</p>
+          <p className="mb-1">© {new Date().getFullYear()} RAWG</p>
           <p className="small">
-            Contact: <a href="mailto:support@gamehub.com" className="text-white">support@gamehub.com</a>
+            Contact: <a href="mailto:support@RAWG.com" className="text-white">support@RAWG.com</a>
           </p>
         </Container>
       </footer>

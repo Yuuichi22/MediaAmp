@@ -6,6 +6,7 @@ import { formatDateToWords } from "../utils/utility";
 import { useDispatch, useSelector } from "react-redux";
 import { addToLibrary } from "../app/features/library/librarySlice";
 import { LoaderCircle } from "lucide-react"
+import SystemRequirements from "../components/SystemRequirements";
 
 const GameDetailsPage = () => {
   const navigate = useNavigate();
@@ -91,11 +92,16 @@ const GameDetailsPage = () => {
       </Container>
 
       {/* Game Description */}
-      <div className="text-center m-5">
+      <div className="text m-5">
         <h3>About</h3>
         <p>{gameInfo.description_raw || "No description available."}</p>
       </div>
+      <div className="mx-5">
+      <SystemRequirements platforms={gameInfo.platforms} />
 
+      </div>
+
+  
       {/* Screenshots Section */}
       <Container>
         <Row className="text-center mt-4">

@@ -3,13 +3,13 @@ import { persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 
 const initialState = {
-  list: [], // ✅ Store library data inside "list" property
+  list: [], 
 };
 
 const persistConfig = {
   key: "library",
   storage,
-  whitelist: ["list"], // ✅ Persist only the "list" property
+  whitelist: ["list"],
 };
 
 const librarySlice = createSlice({
@@ -17,19 +17,19 @@ const librarySlice = createSlice({
   initialState,
   reducers: {
     setLibrary: (state, action) => {
-      state.list = action.payload; // ✅ Update "list" with new data
+      state.list = action.payload; 
     },
 
     resetLibrary: (state) => {
-      state.list = []; // ✅ Reset "list" to an empty array
+      state.list = []; 
     },
 
     addToLibrary: (state, action) => {
-      state.list.push(action.payload); // ✅ Add new game to "list"
+      state.list.push(action.payload);
     },
 
     removeFromLibrary: (state, action) => {
-      state.list = state.list.filter((game) => game.id !== action.payload.id); // ✅ Remove game by ID
+      state.list = state.list.filter((game) => game.id !== action.payload.id); 
     },
   },
 });

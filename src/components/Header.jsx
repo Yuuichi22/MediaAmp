@@ -4,8 +4,9 @@ import { Search,Library,X } from "lucide-react";
 import { useDispatch, useSelector } from "react-redux";
 import { closeSearch, toggleSearch } from "../app/features/search/searchSlice";
 import { useNavigate } from "react-router-dom";
-import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/clerk-react";
+import { SignedIn, SignedOut, SignInButton, UserButton,SignOutButton } from "@clerk/clerk-react";
 import { Button } from "react-bootstrap";
+import { resetLibrary } from "../app/features/library/librarySlice";
 const Header = () => {
   const navigate = useNavigate()
   const dispatch = useDispatch()
@@ -43,7 +44,9 @@ const Header = () => {
       <div className="d-flex align-items-center gap-md-1" onClick={() => navigate('/library')}>
         <Library />
       <span>Library</span></div>
-      <UserButton></UserButton>
+      <SignOutButton onClick={() => dispatch(resetLibrary())}>
+      <button style={{border:"none",background:"none"}}>Logout</button>
+      </SignOutButton>
       </SignedIn>
      
       <SearchComponent isSearching = {isSearching}/>

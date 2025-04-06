@@ -14,7 +14,7 @@ const BaseLayout = () => {
           <Col md={2} className={`${isSearching ? "z-n1 position-md-fixed" : "position-md-fixed"} `}>
             <Menu />
           </Col>
-          <Col md={{ span: 10 }} className="offset-md-2">
+          <Col md={{ span: 10 }} className={`${isSearching ? "z-n1 offset-md-2 " : "offset-md-2"} zIndex-transition`}>
             <Main />
           </Col>
         </Row>

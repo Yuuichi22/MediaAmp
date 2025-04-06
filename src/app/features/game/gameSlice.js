@@ -16,8 +16,6 @@ const gameSlice = createSlice({
             }
         },
         setGames : (state,action) => {
-            console.log("inside setGames",action.payload);
-            
             return {
                 isLoading : false,
                 list : action.payload,

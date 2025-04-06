@@ -7,7 +7,7 @@ const Library = () => {
   const dispatch = useDispatch();
   const { list } = useSelector((state) => state.library);
   const navigate = useNavigate()
-  console.log(list);
+  //console.log(list);
   
   return (
     <Container style={{ paddingTop: "80px" }}>
