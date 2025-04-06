@@ -2,7 +2,7 @@
 
 RAWG is a modern and responsive web application built using React + Vite that allows users to explore video game data like ratings, descriptions, screenshots, and more — powered by the [RAWG Video Games Database API](https://rawg.io/apidocs).
 
-Live Demo: [https://media-amp.vercel.app/](https://media-amp.vercel.app/)
+Live Demo: [https://media-amp-indol.vercel.app/](https://media-amp-indol.vercel.app/)
 
 ---
 
