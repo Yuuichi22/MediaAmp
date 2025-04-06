@@ -55,6 +55,8 @@ Create a .env file in the root directory:
 
 ```env
 VITE_RAWG_API_KEY=your_rawg_api_key_here
+VITE_RAWG_BASE_URI =  https://api.rawg.io/api
+VITE_CLERK_PUBLISHABLE_KEY=your_clerk_publishable_key
 ```
 You can obtain a free API key from https://rawg.io/apidocs.
 
