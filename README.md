@@ -30,6 +30,19 @@ Live Demo: [https://media-amp.vercel.app/](https://media-amp.vercel.app/)
 
 ---
 
+📸 Screenshots
+🔍 Game Search Page
+![image](https://github.com/user-attachments/assets/56210187-082a-4878-ad7b-97e4dc43c613)
+
+🕹️ Game Details Page
+![image](https://github.com/user-attachments/assets/880ee3d8-eb00-4a8b-8777-72dc2f6c62c1)
+
+📚 User Library Page
+![image](https://github.com/user-attachments/assets/717b455e-6ded-4055-8ac8-53c449004a92)
+
+
+---
+
 ## 📁 Folder Structure
 ![image](https://github.com/user-attachments/assets/efa66e90-4188-47a4-b9ee-8306ebe82e6b)
 
